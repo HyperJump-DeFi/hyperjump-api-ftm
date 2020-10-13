@@ -1,0 +1,96 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    subscription: Subscription
+}
+
+type Block {
+    id: ID!
+    number: BigInt!
+    timestamp: BigInt!
+}
+
+type Query {
+    block(
+        "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
+        block: Block_height,
+        id: ID!
+    ): Block
+    blocks(
+        "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
+        block: Block_height,
+        first: Int = 100,
+        orderBy: Block_orderBy,
+        orderDirection: OrderDirection,
+        skip: Int = 0,
+        where: Block_filter
+    ): [Block!]!
+}
+
+type Subscription {
+    block(
+        "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
+        block: Block_height,
+        id: ID!
+    ): Block
+    blocks(
+        "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
+        block: Block_height,
+        first: Int = 100,
+        orderBy: Block_orderBy,
+        orderDirection: OrderDirection,
+        skip: Int = 0,
+        where: Block_filter
+    ): [Block!]!
+}
+
+enum Block_orderBy {
+    id
+    number
+    timestamp
+}
+
+enum OrderDirection {
+    asc
+    desc
+}
+
+input Block_filter {
+    id: ID
+    id_gt: ID
+    id_gte: ID
+    id_in: [ID!]
+    id_lt: ID
+    id_lte: ID
+    id_not: ID
+    id_not_in: [ID!]
+    number: BigInt
+    number_gt: BigInt
+    number_gte: BigInt
+    number_in: [BigInt!]
+    number_lt: BigInt
+    number_lte: BigInt
+    number_not: BigInt
+    number_not_in: [BigInt!]
+    timestamp: BigInt
+    timestamp_gt: BigInt
+    timestamp_gte: BigInt
+    timestamp_in: [BigInt!]
+    timestamp_lt: BigInt
+    timestamp_lte: BigInt
+    timestamp_not: BigInt
+    timestamp_not_in: [BigInt!]
+}
+
+input Block_height {
+    hash: Bytes
+    number: Int
+}
+
+
+scalar BigDecimal
+
+scalar BigInt
+
+scalar Bytes

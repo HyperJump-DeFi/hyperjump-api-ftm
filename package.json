@@ -1,9 +1,6 @@
 {
-  "name": "uniswap-api",
+  "name": "bscswap-api",
   "license": "GPL-3.0-or-later",
-  "engines": {
-    "node": "12.x"
-  },
   "dependencies": {
     "@ethersproject/address": "^5.0.0-beta.125",
     "apollo-cache-inmemory": "^1.6.2",
@@ -36,6 +33,6 @@
     "check:lint": "yarn lint:base",
     "check:format": "yarn format:base --check",
     "check:all": "yarn check:lint && yarn check:format",
-    "generate:v2": "graphql-codegen --config src/v2/apollo/codegen.yml"
+    "generate": "graphql-codegen --config src/apollo/codegen.yml"
   }
 }

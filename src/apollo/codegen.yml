@@ -1,9 +1,9 @@
 overwrite: true
-schema: './src/v2/apollo/schema.graphql'
+schema: './src/apollo/schema.graphql'
 documents:
-  - './src/v2/apollo/queries.ts'
+  - './src/apollo/queries.ts'
 generates:
-  ./src/v2/generated/v2-subgraph.ts:
+  ./src/generated-subgraph.ts:
     plugins:
       - "typescript"
       - "typescript-operations"

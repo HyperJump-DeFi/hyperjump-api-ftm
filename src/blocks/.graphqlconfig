@@ -1,0 +1,15 @@
+{
+  "name": "BSC Blocks",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "BSC Blocks": {
+        "url": "https://subgraph.bscswap.com/subgraphs/name/bscswap/bsc-blocks-timestamp",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

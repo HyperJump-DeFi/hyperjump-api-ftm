@@ -1,10 +1,10 @@
 {
-  "name": "Ethereum Blocks",
+  "name": "BSCswap",
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
-      "Ethereum Blocks": {
-        "url": "https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks",
+      "BSCswap": {
+        "url": "https://subgraph.bscswap.com/subgraphs/name/bscswap/bscswap-subgraph",
         "headers": {
           "user-agent": "JS GraphQL"
         },

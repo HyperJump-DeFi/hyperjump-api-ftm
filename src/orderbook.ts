@@ -1,10 +1,10 @@
 import { getAddress } from '@ethersproject/address'
 import BigNumber from 'bignumber.js'
 import { NowRequest, NowResponse } from '@now/node'
-import { return200, return400, return500 } from '../utils/response'
+import { return200, return400, return500 } from './utils/response'
 
 import { getReserves } from './_shared'
-import { computeBidsAsks } from '../utils/computeBidsAsks'
+import { computeBidsAsks } from './utils/computeBidsAsks'
 
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
   if (

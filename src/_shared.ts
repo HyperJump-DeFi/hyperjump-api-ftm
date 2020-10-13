@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import gql from 'graphql-tag'
-import BLACKLIST from '../constants/blacklist'
+import BLACKLIST from './constants/blacklist'
 
 import client from './apollo/client'
 import { PAIR_RESERVES_BY_TOKENS, PAIRS_VOLUME_QUERY_STRING, SWAPS_BY_PAIR, TOP_PAIRS, PAIR_FROM_TOKENS } from './apollo/queries'
@@ -14,7 +14,7 @@ import {
   SwapsByPairQueryVariables,
   TopPairsQuery,
   TopPairsQueryVariables
-} from './generated/v2-subgraph'
+} from './generated/subgraph'
 
 const SECOND = 1000
 const MINUTE = 60 * SECOND
@@ -161,7 +161,7 @@ interface SwapMapped extends Swap {
 export async function getSwaps(tokenA: string, tokenB: string): Promise<SwapMapped[]> {
   const _24HoursAgo = get24HoursAgo()
   const [token0, token1] = sortedFormatted(tokenA, tokenB)
-  
+
   let {data : {
     pairs : [{id: pairAddress}]
   }} = await client.query({
