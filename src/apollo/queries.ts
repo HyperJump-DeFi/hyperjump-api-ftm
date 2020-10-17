@@ -46,6 +46,7 @@ export const TOP_PAIRS = gql`
       reserve1
       volumeToken0
       volumeToken1
+      reserveUSD
     }
   }
 `
@@ -76,6 +77,14 @@ export const PAIR_FROM_TOKENS = gql`
   query SwapsByTokens( $token0: String!, $token1: String!) {
     pairs(where: { token0: $token0, token1: $token1 }) {
       id
+    }
+  }
+`
+
+export const TOTAL_LIQUIDITY = gql`
+  query TotalLiquidity {
+    bscswapFactories {
+      totalLiquidityUSD
     }
   }
 `

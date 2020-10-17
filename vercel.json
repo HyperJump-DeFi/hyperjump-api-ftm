@@ -4,6 +4,7 @@
   "alias": "api.bscswap.com",
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [
+    { "src": "/totalliquidity", "dest": "/src/totalliquidity.ts", "methods": ["GET"] },
     { "src": "/summary", "dest": "/src/summary.ts", "methods": ["GET"] },
     { "src": "/assets", "dest": "/src/assets.ts", "methods": ["GET"] },
     { "src": "/tickers", "dest": "/src/tickers.ts", "methods": ["GET"] },

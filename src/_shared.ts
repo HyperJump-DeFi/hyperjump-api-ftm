@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import BLACKLIST from './constants/blacklist'
 
 import client from './apollo/client'
-import { PAIR_RESERVES_BY_TOKENS, PAIRS_VOLUME_QUERY_STRING, SWAPS_BY_PAIR, TOP_PAIRS, PAIR_FROM_TOKENS } from './apollo/queries'
+import { PAIR_RESERVES_BY_TOKENS, PAIRS_VOLUME_QUERY_STRING, SWAPS_BY_PAIR, TOP_PAIRS, PAIR_FROM_TOKENS, TOTAL_LIQUIDITY } from './apollo/queries'
 import { getBlockFromTimestamp } from './blocks/queries'
 import {
   PairReservesQuery,
@@ -13,7 +13,9 @@ import {
   SwapsByPairQuery,
   SwapsByPairQueryVariables,
   TopPairsQuery,
-  TopPairsQueryVariables
+  TopPairsQueryVariables,
+  TotalLiquidityQuery,
+  TotalLiquidityQueryVariables
 } from './generated/subgraph'
 
 const SECOND = 1000
@@ -27,6 +29,7 @@ export function get24HoursAgo(): number {
 
 const TOP_PAIR_LIMIT = 1000
 export type Pair = TopPairsQuery['pairs'][number]
+export type BSCswapFactory = TotalLiquidityQuery['bscswapFactories'][number]
 
 export interface MappedDetailedPair extends Pair {
   price?: string
@@ -215,4 +218,13 @@ export async function getSwaps(tokenA: string, tokenB: string): Promise<SwapMapp
   }
 
   return results
+}
+
+export async function getTotalLiquidity(): Promise<[number]> {
+    let {data : {
+      bscswapFactories : [{totalLiquidityUSD: result}]
+    }} = await client.query({
+      query: TOTAL_LIQUIDITY
+    })
+    return result
 }

@@ -2095,3 +2095,16 @@ export type SwapsByTokensQuery = (
     & Pick<Pair, 'id'>
   )> }
 );
+
+export type TotalLiquidityQueryVariables = Exact<{
+  totalLiquidityUSD: Scalars['String'];
+}>;
+
+
+export type TotalLiquidityQuery = (
+  { readonly __typename?: 'Query' }
+  & { readonly bscswapFactories: ReadonlyArray<(
+    { readonly __typename?: 'BSCswapFactory' }
+    & Pick<BSCswapFactory, 'totalLiquidityUSD'>
+  )> }
+);

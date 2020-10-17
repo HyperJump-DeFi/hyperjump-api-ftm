@@ -34,8 +34,28 @@ Results are edge cached for 15 minutes.
     "last_price": "1.234",          // denominated in token0/token1
     "base_volume": "123.456",       // last 24h volume denominated in token0
     "quote_volume": "1234.56"       // last 24h volume denominated in token1
+    "pair_liquidity": "1234.56"     // Pair liquidity in USD
   },
   // ...
+}
+```
+
+## [`/totalliquidity`](https://api.bscswap.com/totalliquidity)
+
+Returns the total liquidity in USD value on BSCswap.
+Results are edge cached for 24 hours.
+
+### Request
+
+`GET https://api.bscswap.com/totalliquidity`
+
+### Response
+
+```json5
+{
+  "result": {
+    "totalLiquidityUSD": "...", // Total liquidity in USD
+  }
 }
 ```
 
