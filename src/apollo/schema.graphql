@@ -231,12 +231,12 @@ type Query {
         skip: Int = 0,
         where: Transaction_filter
     ): [Transaction!]!
-    bscswapDayData(
+    thugswapDayData(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
     ): BscswapDayData
-    bscswapDayDatas(
+    thugswapDayDatas(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
@@ -245,7 +245,7 @@ type Query {
         skip: Int = 0,
         where: BscswapDayData_filter
     ): [BscswapDayData!]!
-    bscswapFactories(
+    thugswapFactories(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
@@ -254,7 +254,7 @@ type Query {
         skip: Int = 0,
         where: BscswapFactory_filter
     ): [BscswapFactory!]!
-    bscswapFactory(
+    thugswapFactory(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
@@ -416,12 +416,12 @@ type Subscription {
         skip: Int = 0,
         where: Transaction_filter
     ): [Transaction!]!
-    bscswapDayData(
+    thugswapDayData(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!
     ): BscswapDayData
-    bscswapDayDatas(
+    thugswapDayDatas(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
@@ -430,7 +430,7 @@ type Subscription {
         skip: Int = 0,
         where: BscswapDayData_filter
     ): [BscswapDayData!]!
-    bscswapFactories(
+    thugswapFactories(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         first: Int = 100,
@@ -439,7 +439,7 @@ type Subscription {
         skip: Int = 0,
         where: BscswapFactory_filter
     ): [BscswapFactory!]!
-    bscswapFactory(
+    thugswapFactory(
         "The block at which the query should be executed. Can either be an `{ number: Int }` containing the block number or a `{ hash: Bytes }` value containing a block hash. Defaults to the latest block when omitted."
         block: Block_height,
         id: ID!

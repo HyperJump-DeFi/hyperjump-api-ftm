@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 export const blockClient = new ApolloClient({
   link: new HttpLink({
     fetch,
-    uri: 'https://subgraph.bscswap.com/subgraphs/name/bscswap/bsc-blocks-timestamp'
+    uri: 'https://api.bscgraph.org/subgraphs/name/bsc-blocks'
   }),
   cache: new InMemoryCache()
 })

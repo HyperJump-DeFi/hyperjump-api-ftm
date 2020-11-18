@@ -1,7 +1,7 @@
 {
-  "name": "bscswap-api",
+  "name": "thugswap-api",
   "version": 2,
-  "alias": "api.bscswap.com",
+  "alias": "api.streetswap.vip",
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [
     { "src": "/totalliquidity", "dest": "/src/totalliquidity.ts", "methods": ["GET"] },
