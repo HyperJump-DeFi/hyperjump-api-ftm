@@ -7,7 +7,11 @@
     { "src": "/totalliquidity", "dest": "/src/totalliquidity.ts", "methods": ["GET"] },
     { "src": "/summary", "dest": "/src/summary.ts", "methods": ["GET"] },
     { "src": "/assets", "dest": "/src/assets.ts", "methods": ["GET"] },
-    { "src": "/tickers", "dest": "/src/tickers.ts", "methods": ["GET"] },
+    { "src": "/tickers", "dest": "/src/tickers.ts", "methods": ["GET"], "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+        "Access-Control-Allow-Credentials": "true"
+      } },
     {
       "src": "/orderbook/(?<pair>.*)",
       "dest": "/src/orderbook.ts?pair=$pair",
