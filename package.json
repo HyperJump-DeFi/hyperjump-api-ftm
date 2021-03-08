@@ -1,5 +1,5 @@
 {
-  "name": "streetswap-api",
+  "name": "hyperswap-api",
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@ethersproject/address": "^5.0.0-beta.125",

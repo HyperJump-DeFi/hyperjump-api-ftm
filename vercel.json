@@ -1,7 +1,7 @@
 {
-  "name": "thugswap-api",
+  "name": "hyperswap-api",
   "version": 2,
-  "alias": "api.streetswap.vip",
+  "alias": "api.hyperswap.fi",
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [
     { "src": "/totalliquidity", "dest": "/src/totalliquidity.ts", "methods": ["GET"] },
