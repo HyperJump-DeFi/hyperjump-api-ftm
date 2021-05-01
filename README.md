@@ -1,25 +1,25 @@
 # Streetswap API
 
-The Streetswap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface Thugswap liquidity
+The Streetswap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface Hyperswap liquidity
 and volume information. All information is fetched from the underlying subgraphs.
 
 The API is designed around the CoinMarketCap
 [requirements document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg).
 
-Prefer the Thugswap subgraph for any Thugswap queries whenever possible.
+Prefer the Hyperswap subgraph for any Hyperswap queries whenever possible.
 
-Thugswap Subgraph: https://github.com/thugswap/thugswap-subgraph
+Hyperswap Subgraph: https://github.com/hyperswap/hyperswap-subgraph
 
-# Thugswap Endpoints
+# Hyperswap Endpoints
 
-All Thugswap pairs consist of two different tokens. BNB is not a native currency in Thugswap, and is represented
-only by WBNB in the pairs.
+All Hyperswap pairs consist of two different tokens. FTM is not a native currency in Hyperswap, and is represented
+only by WFTM in the pairs.
 
-The canonical WBNB address used by the Thugswap interface is `0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c`.
+The canonical WFTM address used by the Hyperswap interface is `0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83`.
 
 ## [`/summary`](https://api.streetswap.vip/summary)
 
-Returns data for the top ~1000 Thugswap pairs, sorted by reserves.
+Returns data for the top ~1000 Hyperswap pairs, sorted by reserves.
 Results are edge cached for 15 minutes.
 
 ### Request
@@ -42,7 +42,7 @@ Results are edge cached for 15 minutes.
 
 ## [`/totalliquidity`](https://api.streetswap.vip/totalliquidity)
 
-Returns the total liquidity in USD value on Thugswap.
+Returns the total liquidity in USD value on Hyperswap.
 Results are edge cached for 24 hours.
 
 ### Request
@@ -61,7 +61,7 @@ Results are edge cached for 24 hours.
 
 ## [`/assets`](https://api.streetswap.vip/assets)
 
-Returns the tokens in the top ~1000 pairs on Thugswap, sorted by reserves.
+Returns the tokens in the top ~1000 pairs on Hyperswap, sorted by reserves.
 Results are edge cached for 24 hours.
 
 ### Request
@@ -86,7 +86,7 @@ Results are edge cached for 24 hours.
 
 ## [`/tickers`](https://api.streetswap.vip/tickers)
 
-Returns data for the top ~1000 Thugswap pairs, sorted by reserves.
+Returns data for the top ~1000 Hyperswap pairs, sorted by reserves.
 Results are edge cached for 1 minute.
 
 ### Request
@@ -97,7 +97,7 @@ Results are edge cached for 1 minute.
 
 ```json5
 {
-  "0x..._0x...": {                    // the asset ids of BNB and BEP20 tokens, joined by an underscore
+  "0x..._0x...": {                    // the asset ids of FTM and BEP20 tokens, joined by an underscore
     "base_name": "...",             // token0 name
     "base_symbol": "...",           // token0 symbol
     "base_id": "0x...",             // token0 address
@@ -114,9 +114,9 @@ Results are edge cached for 1 minute.
 
 ## `/orderbook/:pair`
 
-Returns simulated orderbook data for the given Thugswap pair.
-Since Thugswap has a continuous orderbook, fixed amounts in an interval are chosen for bids and asks,
-and prices are derived from the Thugswap formula (accounting for both slippage and fees paid to LPs).
+Returns simulated orderbook data for the given Hyperswap pair.
+Since Hyperswap has a continuous orderbook, fixed amounts in an interval are chosen for bids and asks,
+and prices are derived from the Hyperswap formula (accounting for both slippage and fees paid to LPs).
 Results are edge cached for 15 minutes.
 
 ### Request
@@ -147,13 +147,13 @@ Results are edge cached for 15 minutes.
 
 ## `/trades/:pair`
 
-Returns all swaps in the last 24 hours for the given Thugswap pair.
+Returns all swaps in the last 24 hours for the given Hyperswap pair.
 Results are edge cached for 15 minutes.
 
 The pair address is the address of the two tokens in either order.
 The first address is considered the base in the response.
 
-Note because Thugswap supports flash swaps and borrowing of both tokens in a pair, you may wish to exclude these
+Note because Hyperswap supports flash swaps and borrowing of both tokens in a pair, you may wish to exclude these
 trade types (types `"???"` and `"borrow-both"`).
 
 ### URL Parameters

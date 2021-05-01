@@ -14,7 +14,7 @@ export interface Scalars {
 
 export interface Bundle {
   readonly __typename?: 'Bundle';
-  readonly bnbPrice: Scalars['BigDecimal'];
+  readonly ftmPrice: Scalars['BigDecimal'];
   readonly id: Scalars['ID'];
 }
 
@@ -66,13 +66,13 @@ export interface Pair {
   readonly burns?: Maybe<ReadonlyArray<Burn>>;
   readonly createdAtBlockNumber: Scalars['BigInt'];
   readonly createdAtTimestamp: Scalars['BigInt'];
-  readonly factory: ThugswapFactory;
+  readonly factory: HyperswapFactory;
   readonly id: Scalars['ID'];
   readonly liquidityPositions?: Maybe<ReadonlyArray<LiquidityPosition>>;
   readonly mints?: Maybe<ReadonlyArray<Mint>>;
   readonly reserve0: Scalars['BigDecimal'];
   readonly reserve1: Scalars['BigDecimal'];
-  readonly reserveBNB: Scalars['BigDecimal'];
+  readonly reserveFTM: Scalars['BigDecimal'];
   readonly reserveUSD: Scalars['BigDecimal'];
   readonly swaps?: Maybe<ReadonlyArray<Swap>>;
   readonly token0: Token;
@@ -80,7 +80,7 @@ export interface Pair {
   readonly token1: Token;
   readonly token1Price: Scalars['BigDecimal'];
   readonly totalSupply: Scalars['BigDecimal'];
-  readonly trackedReserveBNB: Scalars['BigDecimal'];
+  readonly trackedReserveFTM: Scalars['BigDecimal'];
   readonly txCount: Scalars['BigInt'];
   readonly volumeToken0: Scalars['BigDecimal'];
   readonly volumeToken1: Scalars['BigDecimal'];
@@ -161,10 +161,10 @@ export interface Query {
   readonly tokens: ReadonlyArray<Token>;
   readonly transaction?: Maybe<Transaction>;
   readonly transactions: ReadonlyArray<Transaction>;
-  readonly thugswapDayData?: Maybe<ThugswapDayData>;
-  readonly thugswapDayDatas: ReadonlyArray<ThugswapDayData>;
-  readonly thugswapFactories: ReadonlyArray<ThugswapFactory>;
-  readonly thugswapFactory?: Maybe<ThugswapFactory>;
+  readonly hyperswapDayData?: Maybe<HyperswapDayData>;
+  readonly hyperswapDayDatas: ReadonlyArray<HyperswapDayData>;
+  readonly hyperswapFactories: ReadonlyArray<HyperswapFactory>;
+  readonly hyperswapFactory?: Maybe<HyperswapFactory>;
   readonly user?: Maybe<User>;
   readonly users: ReadonlyArray<User>;
 }
@@ -330,33 +330,33 @@ export interface QueryTransactionsArgs {
 }
 
 
-export interface QueryThugswapDayDataArgs {
+export interface QueryHyperswapDayDataArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
 
 
-export interface QueryThugswapDayDatasArgs {
+export interface QueryHyperswapDayDatasArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<ThugswapDayData_OrderBy>;
+  orderBy?: Maybe<HyperswapDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<ThugswapDayData_Filter>;
+  where?: Maybe<HyperswapDayData_Filter>;
 }
 
 
-export interface QueryThugswapFactoriesArgs {
+export interface QueryHyperswapFactoriesArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<ThugswapFactory_OrderBy>;
+  orderBy?: Maybe<HyperswapFactory_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<ThugswapFactory_Filter>;
+  where?: Maybe<HyperswapFactory_Filter>;
 }
 
 
-export interface QueryThugswapFactoryArgs {
+export interface QueryHyperswapFactoryArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
@@ -399,10 +399,10 @@ export interface Subscription {
   readonly tokens: ReadonlyArray<Token>;
   readonly transaction?: Maybe<Transaction>;
   readonly transactions: ReadonlyArray<Transaction>;
-  readonly thugswapDayData?: Maybe<ThugswapDayData>;
-  readonly thugswapDayDatas: ReadonlyArray<ThugswapDayData>;
-  readonly thugswapFactories: ReadonlyArray<ThugswapFactory>;
-  readonly thugswapFactory?: Maybe<ThugswapFactory>;
+  readonly hyperswapDayData?: Maybe<HyperswapDayData>;
+  readonly hyperswapDayDatas: ReadonlyArray<HyperswapDayData>;
+  readonly hyperswapFactories: ReadonlyArray<HyperswapFactory>;
+  readonly hyperswapFactory?: Maybe<HyperswapFactory>;
   readonly user?: Maybe<User>;
   readonly users: ReadonlyArray<User>;
 }
@@ -568,33 +568,33 @@ export interface SubscriptionTransactionsArgs {
 }
 
 
-export interface SubscriptionThugswapDayDataArgs {
+export interface SubscriptionHyperswapDayDataArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
 
 
-export interface SubscriptionThugswapDayDatasArgs {
+export interface SubscriptionHyperswapDayDatasArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<ThugswapDayData_OrderBy>;
+  orderBy?: Maybe<HyperswapDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<ThugswapDayData_Filter>;
+  where?: Maybe<HyperswapDayData_Filter>;
 }
 
 
-export interface SubscriptionThugswapFactoriesArgs {
+export interface SubscriptionHyperswapFactoriesArgs {
   block?: Maybe<Block_Height>;
   first?: Maybe<Scalars['Int']>;
-  orderBy?: Maybe<ThugswapFactory_OrderBy>;
+  orderBy?: Maybe<HyperswapFactory_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
   skip?: Maybe<Scalars['Int']>;
-  where?: Maybe<ThugswapFactory_Filter>;
+  where?: Maybe<HyperswapFactory_Filter>;
 }
 
 
-export interface SubscriptionThugswapFactoryArgs {
+export interface SubscriptionHyperswapFactoryArgs {
   block?: Maybe<Block_Height>;
   id: Scalars['ID'];
 }
@@ -635,7 +635,7 @@ export interface Token {
   readonly __typename?: 'Token';
   readonly allPairs?: Maybe<ReadonlyArray<Pair>>;
   readonly decimals: Scalars['BigInt'];
-  readonly derivedBNB?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM?: Maybe<Scalars['BigDecimal']>;
   readonly id: Scalars['ID'];
   readonly mostLiquidPairs: ReadonlyArray<Maybe<PairDayData>>;
   readonly name: Scalars['String'];
@@ -667,7 +667,7 @@ export interface TokenMostLiquidPairsArgs {
 export interface TokenDayData {
   readonly __typename?: 'TokenDayData';
   readonly dailyTxns: Scalars['BigInt'];
-  readonly dailyVolumeBNB: Scalars['BigDecimal'];
+  readonly dailyVolumeFTM: Scalars['BigDecimal'];
   readonly dailyVolumeToken: Scalars['BigDecimal'];
   readonly dailyVolumeUSD: Scalars['BigDecimal'];
   readonly date: Scalars['Int'];
@@ -676,7 +676,7 @@ export interface TokenDayData {
   readonly mostLiquidPairs: ReadonlyArray<PairDayData>;
   readonly priceUSD: Scalars['BigDecimal'];
   readonly token: Token;
-  readonly totalLiquidityBNB: Scalars['BigDecimal'];
+  readonly totalLiquidityFTM: Scalars['BigDecimal'];
   readonly totalLiquidityToken: Scalars['BigDecimal'];
   readonly totalLiquidityUSD: Scalars['BigDecimal'];
 }
@@ -727,23 +727,23 @@ export interface TransactionSwapsArgs {
   where?: Maybe<Swap_Filter>;
 }
 
-export interface ThugswapDayData {
-  readonly __typename?: 'ThugswapDayData';
-  readonly dailyVolumeBNB: Scalars['BigDecimal'];
+export interface HyperswapDayData {
+  readonly __typename?: 'HyperswapDayData';
+  readonly dailyVolumeFTM: Scalars['BigDecimal'];
   readonly dailyVolumeUSD: Scalars['BigDecimal'];
   readonly date: Scalars['Int'];
   readonly id: Scalars['ID'];
   readonly maxStored?: Maybe<Scalars['Int']>;
   readonly mostLiquidTokens: ReadonlyArray<TokenDayData>;
-  readonly totalLiquidityBNB: Scalars['BigDecimal'];
+  readonly totalLiquidityFTM: Scalars['BigDecimal'];
   readonly totalLiquidityUSD: Scalars['BigDecimal'];
-  readonly totalVolumeBNB: Scalars['BigDecimal'];
+  readonly totalVolumeFTM: Scalars['BigDecimal'];
   readonly totalVolumeUSD: Scalars['BigDecimal'];
   readonly txCount: Scalars['BigInt'];
 }
 
 
-export interface ThugswapDayDataMostLiquidTokensArgs {
+export interface HyperswapDayDataMostLiquidTokensArgs {
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<TokenDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
@@ -751,21 +751,21 @@ export interface ThugswapDayDataMostLiquidTokensArgs {
   where?: Maybe<TokenDayData_Filter>;
 }
 
-export interface ThugswapFactory {
-  readonly __typename?: 'ThugswapFactory';
+export interface HyperswapFactory {
+  readonly __typename?: 'HyperswapFactory';
   readonly id: Scalars['ID'];
   readonly mostLiquidTokens: ReadonlyArray<TokenDayData>;
   readonly pairCount: Scalars['Int'];
   readonly pairs: ReadonlyArray<Maybe<Pair>>;
-  readonly totalLiquidityBNB: Scalars['BigDecimal'];
+  readonly totalLiquidityFTM: Scalars['BigDecimal'];
   readonly totalLiquidityUSD: Scalars['BigDecimal'];
-  readonly totalVolumeBNB: Scalars['BigDecimal'];
+  readonly totalVolumeFTM: Scalars['BigDecimal'];
   readonly totalVolumeUSD: Scalars['BigDecimal'];
   readonly txCount: Scalars['BigInt'];
 }
 
 
-export interface ThugswapFactoryMostLiquidTokensArgs {
+export interface HyperswapFactoryMostLiquidTokensArgs {
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<TokenDayData_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
@@ -774,7 +774,7 @@ export interface ThugswapFactoryMostLiquidTokensArgs {
 }
 
 
-export interface ThugswapFactoryPairsArgs {
+export interface HyperswapFactoryPairsArgs {
   first?: Maybe<Scalars['Int']>;
   orderBy?: Maybe<Pair_OrderBy>;
   orderDirection?: Maybe<OrderDirection>;
@@ -798,7 +798,7 @@ export interface UserLiquidityPositionsArgs {
 }
 
 export enum Bundle_OrderBy {
-  BnbPrice = 'bnbPrice',
+  FtmPrice = 'ftmPrice',
   Id = 'id'
 }
 
@@ -872,7 +872,7 @@ export enum Pair_OrderBy {
   Mints = 'mints',
   Reserve0 = 'reserve0',
   Reserve1 = 'reserve1',
-  ReserveBnb = 'reserveBNB',
+  ReserveFtm = 'reserveFTM',
   ReserveUsd = 'reserveUSD',
   Swaps = 'swaps',
   Token0 = 'token0',
@@ -880,7 +880,7 @@ export enum Pair_OrderBy {
   Token1 = 'token1',
   Token1Price = 'token1Price',
   TotalSupply = 'totalSupply',
-  TrackedReserveBnb = 'trackedReserveBNB',
+  TrackedReserveFtm = 'trackedReserveFTM',
   TxCount = 'txCount',
   VolumeToken0 = 'volumeToken0',
   VolumeToken1 = 'volumeToken1',
@@ -904,7 +904,7 @@ export enum Swap_OrderBy {
 
 export enum TokenDayData_OrderBy {
   DailyTxns = 'dailyTxns',
-  DailyVolumeBnb = 'dailyVolumeBNB',
+  DailyVolumeFtm = 'dailyVolumeFTM',
   DailyVolumeToken = 'dailyVolumeToken',
   DailyVolumeUsd = 'dailyVolumeUSD',
   Date = 'date',
@@ -913,7 +913,7 @@ export enum TokenDayData_OrderBy {
   MostLiquidPairs = 'mostLiquidPairs',
   PriceUsd = 'priceUSD',
   Token = 'token',
-  TotalLiquidityBnb = 'totalLiquidityBNB',
+  TotalLiquidityFtm = 'totalLiquidityFTM',
   TotalLiquidityToken = 'totalLiquidityToken',
   TotalLiquidityUsd = 'totalLiquidityUSD'
 }
@@ -921,7 +921,7 @@ export enum TokenDayData_OrderBy {
 export enum Token_OrderBy {
   AllPairs = 'allPairs',
   Decimals = 'decimals',
-  DerivedBnb = 'derivedBNB',
+  DerivedFtm = 'derivedFTM',
   Id = 'id',
   MostLiquidPairs = 'mostLiquidPairs',
   Name = 'name',
@@ -941,28 +941,28 @@ export enum Transaction_OrderBy {
   Timestamp = 'timestamp'
 }
 
-export enum ThugswapDayData_OrderBy {
-  DailyVolumeBnb = 'dailyVolumeBNB',
+export enum HyperswapDayData_OrderBy {
+  DailyVolumeFtm = 'dailyVolumeFTM',
   DailyVolumeUsd = 'dailyVolumeUSD',
   Date = 'date',
   Id = 'id',
   MaxStored = 'maxStored',
   MostLiquidTokens = 'mostLiquidTokens',
-  TotalLiquidityBnb = 'totalLiquidityBNB',
+  TotalLiquidityFtm = 'totalLiquidityFTM',
   TotalLiquidityUsd = 'totalLiquidityUSD',
-  TotalVolumeBnb = 'totalVolumeBNB',
+  TotalVolumeFtm = 'totalVolumeFTM',
   TotalVolumeUsd = 'totalVolumeUSD',
   TxCount = 'txCount'
 }
 
-export enum ThugswapFactory_OrderBy {
+export enum HyperswapFactory_OrderBy {
   Id = 'id',
   MostLiquidTokens = 'mostLiquidTokens',
   PairCount = 'pairCount',
   Pairs = 'pairs',
-  TotalLiquidityBnb = 'totalLiquidityBNB',
+  TotalLiquidityFtm = 'totalLiquidityFTM',
   TotalLiquidityUsd = 'totalLiquidityUSD',
-  TotalVolumeBnb = 'totalVolumeBNB',
+  TotalVolumeFtm = 'totalVolumeFTM',
   TotalVolumeUsd = 'totalVolumeUSD',
   TxCount = 'txCount'
 }
@@ -978,14 +978,14 @@ export interface Block_Height {
 }
 
 export interface Bundle_Filter {
-  readonly bnbPrice?: Maybe<Scalars['BigDecimal']>;
-  readonly bnbPrice_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly bnbPrice_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly bnbPrice_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly bnbPrice_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly bnbPrice_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly bnbPrice_not?: Maybe<Scalars['BigDecimal']>;
-  readonly bnbPrice_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly ftmPrice?: Maybe<Scalars['BigDecimal']>;
+  readonly ftmPrice_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly ftmPrice_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly ftmPrice_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly ftmPrice_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly ftmPrice_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly ftmPrice_not?: Maybe<Scalars['BigDecimal']>;
+  readonly ftmPrice_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly id?: Maybe<Scalars['ID']>;
   readonly id_gt?: Maybe<Scalars['ID']>;
   readonly id_gte?: Maybe<Scalars['ID']>;
@@ -1399,14 +1399,14 @@ export interface Pair_Filter {
   readonly reserve1_lte?: Maybe<Scalars['BigDecimal']>;
   readonly reserve1_not?: Maybe<Scalars['BigDecimal']>;
   readonly reserve1_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly reserveBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly reserveBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly reserveBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly reserveBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly reserveBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly reserveBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly reserveBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly reserveBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly reserveFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly reserveFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly reserveFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly reserveFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly reserveFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly reserveFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly reserveFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly reserveFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly reserveUSD?: Maybe<Scalars['BigDecimal']>;
   readonly reserveUSD_gt?: Maybe<Scalars['BigDecimal']>;
   readonly reserveUSD_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1467,14 +1467,14 @@ export interface Pair_Filter {
   readonly totalSupply_lte?: Maybe<Scalars['BigDecimal']>;
   readonly totalSupply_not?: Maybe<Scalars['BigDecimal']>;
   readonly totalSupply_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly trackedReserveBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly trackedReserveBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly trackedReserveBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly trackedReserveBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly trackedReserveBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly trackedReserveBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly trackedReserveBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly trackedReserveBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly trackedReserveFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly trackedReserveFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly trackedReserveFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly trackedReserveFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly trackedReserveFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly trackedReserveFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly trackedReserveFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly trackedReserveFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly txCount?: Maybe<Scalars['BigInt']>;
   readonly txCount_gt?: Maybe<Scalars['BigInt']>;
   readonly txCount_gte?: Maybe<Scalars['BigInt']>;
@@ -1611,14 +1611,14 @@ export interface TokenDayData_Filter {
   readonly dailyTxns_lte?: Maybe<Scalars['BigInt']>;
   readonly dailyTxns_not?: Maybe<Scalars['BigInt']>;
   readonly dailyTxns_not_in?: Maybe<ReadonlyArray<Scalars['BigInt']>>;
-  readonly dailyVolumeBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly dailyVolumeBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly dailyVolumeFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly dailyVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly dailyVolumeToken?: Maybe<Scalars['BigDecimal']>;
   readonly dailyVolumeToken_gt?: Maybe<Scalars['BigDecimal']>;
   readonly dailyVolumeToken_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1685,14 +1685,14 @@ export interface TokenDayData_Filter {
   readonly token_not_in?: Maybe<ReadonlyArray<Scalars['String']>>;
   readonly token_not_starts_with?: Maybe<Scalars['String']>;
   readonly token_starts_with?: Maybe<Scalars['String']>;
-  readonly totalLiquidityBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalLiquidityBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalLiquidityFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalLiquidityFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly totalLiquidityToken?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityToken_gt?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityToken_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1724,14 +1724,14 @@ export interface Token_Filter {
   readonly decimals_lte?: Maybe<Scalars['BigInt']>;
   readonly decimals_not?: Maybe<Scalars['BigInt']>;
   readonly decimals_not_in?: Maybe<ReadonlyArray<Scalars['BigInt']>>;
-  readonly derivedBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly derivedBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly derivedBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly derivedBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly derivedBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly derivedBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly derivedBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly derivedBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly derivedFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly derivedFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly derivedFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly id?: Maybe<Scalars['ID']>;
   readonly id_gt?: Maybe<Scalars['ID']>;
   readonly id_gte?: Maybe<Scalars['ID']>;
@@ -1845,15 +1845,15 @@ export interface Transaction_Filter {
   readonly timestamp_not_in?: Maybe<ReadonlyArray<Scalars['BigInt']>>;
 }
 
-export interface ThugswapDayData_Filter {
-  readonly dailyVolumeBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly dailyVolumeBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly dailyVolumeBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+export interface HyperswapDayData_Filter {
+  readonly dailyVolumeFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly dailyVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly dailyVolumeFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly dailyVolumeUSD?: Maybe<Scalars['BigDecimal']>;
   readonly dailyVolumeUSD_gt?: Maybe<Scalars['BigDecimal']>;
   readonly dailyVolumeUSD_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1890,14 +1890,14 @@ export interface ThugswapDayData_Filter {
   readonly mostLiquidTokens_contains?: Maybe<ReadonlyArray<Scalars['String']>>;
   readonly mostLiquidTokens_not?: Maybe<ReadonlyArray<Scalars['String']>>;
   readonly mostLiquidTokens_not_contains?: Maybe<ReadonlyArray<Scalars['String']>>;
-  readonly totalLiquidityBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalLiquidityBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalLiquidityFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalLiquidityFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly totalLiquidityUSD?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_gt?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1906,14 +1906,14 @@ export interface ThugswapDayData_Filter {
   readonly totalLiquidityUSD_lte?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_not?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalVolumeBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalVolumeBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalVolumeFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly totalVolumeUSD?: Maybe<Scalars['BigDecimal']>;
   readonly totalVolumeUSD_gt?: Maybe<Scalars['BigDecimal']>;
   readonly totalVolumeUSD_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1932,7 +1932,7 @@ export interface ThugswapDayData_Filter {
   readonly txCount_not_in?: Maybe<ReadonlyArray<Scalars['BigInt']>>;
 }
 
-export interface ThugswapFactory_Filter {
+export interface HyperswapFactory_Filter {
   readonly id?: Maybe<Scalars['ID']>;
   readonly id_gt?: Maybe<Scalars['ID']>;
   readonly id_gte?: Maybe<Scalars['ID']>;
@@ -1957,14 +1957,14 @@ export interface ThugswapFactory_Filter {
   readonly pairs_contains?: Maybe<ReadonlyArray<Scalars['String']>>;
   readonly pairs_not?: Maybe<ReadonlyArray<Scalars['String']>>;
   readonly pairs_not_contains?: Maybe<ReadonlyArray<Scalars['String']>>;
-  readonly totalLiquidityBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalLiquidityBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly totalLiquidityBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalLiquidityFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalLiquidityFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly totalLiquidityFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly totalLiquidityUSD?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_gt?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_gte?: Maybe<Scalars['BigDecimal']>;
@@ -1973,14 +1973,14 @@ export interface ThugswapFactory_Filter {
   readonly totalLiquidityUSD_lte?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_not?: Maybe<Scalars['BigDecimal']>;
   readonly totalLiquidityUSD_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalVolumeBNB?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_gt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_gte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
-  readonly totalVolumeBNB_lt?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_lte?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_not?: Maybe<Scalars['BigDecimal']>;
-  readonly totalVolumeBNB_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalVolumeFTM?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_gt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_gte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
+  readonly totalVolumeFTM_lt?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_lte?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_not?: Maybe<Scalars['BigDecimal']>;
+  readonly totalVolumeFTM_not_in?: Maybe<ReadonlyArray<Scalars['BigDecimal']>>;
   readonly totalVolumeUSD?: Maybe<Scalars['BigDecimal']>;
   readonly totalVolumeUSD_gt?: Maybe<Scalars['BigDecimal']>;
   readonly totalVolumeUSD_gte?: Maybe<Scalars['BigDecimal']>;
@@ -2103,8 +2103,8 @@ export type TotalLiquidityQueryVariables = Exact<{
 
 export type TotalLiquidityQuery = (
   { readonly __typename?: 'Query' }
-  & { readonly thugswapFactories: ReadonlyArray<(
-    { readonly __typename?: 'ThugswapFactory' }
-    & Pick<ThugswapFactory, 'totalLiquidityUSD'>
+  & { readonly hyperswapFactories: ReadonlyArray<(
+    { readonly __typename?: 'HyperswapFactory' }
+    & Pick<HyperswapFactory, 'totalLiquidityUSD'>
   )> }
 );
