@@ -1,14 +1,11 @@
-# Streetswap API
+# HyperSwap API
 
-The Streetswap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface Hyperswap liquidity
+The HyperSwap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface Hyperswap liquidity
 and volume information. All information is fetched from the underlying subgraphs.
 
 The API is designed around the CoinMarketCap
 [requirements document](https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg).
 
-Prefer the Hyperswap subgraph for any Hyperswap queries whenever possible.
-
-Hyperswap Subgraph: https://github.com/hyperswap/hyperswap-subgraph
 
 # Hyperswap Endpoints
 
@@ -17,14 +14,14 @@ only by WFTM in the pairs.
 
 The canonical WFTM address used by the Hyperswap interface is `0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83`.
 
-## [`/summary`](https://api.streetswap.vip/summary)
+## [`/summary`](https://ftmapi.hyperswap.fi/summary)
 
 Returns data for the top ~1000 Hyperswap pairs, sorted by reserves.
 Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://api.streetswap.vip/summary`
+`GET https://ftmapi.hyperswap.fi/summary`
 
 ### Response
 
@@ -40,14 +37,14 @@ Results are edge cached for 15 minutes.
 }
 ```
 
-## [`/totalliquidity`](https://api.streetswap.vip/totalliquidity)
+## [`/totalliquidity`](https://ftmapi.hyperswap.fi/totalliquidity)
 
 Returns the total liquidity in USD value on Hyperswap.
 Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://api.streetswap.vip/totalliquidity`
+`GET https://ftmapi.hyperswap.fi/totalliquidity`
 
 ### Response
 
@@ -59,14 +56,14 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/assets`](https://api.streetswap.vip/assets)
+## [`/assets`](https://ftmapi.hyperswap.fi/assets)
 
 Returns the tokens in the top ~1000 pairs on Hyperswap, sorted by reserves.
 Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://api.streetswap.vip/assets`
+`GET https://ftmapi.hyperswap.fi/assets`
 
 ### Response
 
@@ -84,14 +81,14 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/tickers`](https://api.streetswap.vip/tickers)
+## [`/tickers`](https://ftmapi.hyperswap.fi/tickers)
 
 Returns data for the top ~1000 Hyperswap pairs, sorted by reserves.
 Results are edge cached for 1 minute.
 
 ### Request
 
-`GET https://api.streetswap.vip/tickers`
+`GET https://ftmapi.hyperswap.fi/tickers`
 
 ### Response
 
@@ -121,7 +118,7 @@ Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://api.streetswap.vip/orderbook/:pair`
+`GET https://ftmapi.hyperswap.fi/orderbook/:pair`
 
 ### URL Parameters
 
@@ -162,7 +159,7 @@ trade types (types `"???"` and `"borrow-both"`).
 
 ### Request
 
-`GET https://api.streetswap.vip/trades/:pair`
+`GET https://ftmapi.hyperswap.fi/trades/:pair`
 
 ### Response
 
