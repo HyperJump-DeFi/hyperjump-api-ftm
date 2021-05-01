@@ -1,7 +1,7 @@
 {
-  "name": "hyperswap-api",
+  "name": "hyperswap-ftmapi",
   "version": 2,
-  "alias": "api.hyperswap.fi",
+  "alias": "ftmapi.hyperswap.fi",
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [
     { "src": "/totalliquidity", "dest": "/src/totalliquidity.ts", "methods": ["GET"] },
