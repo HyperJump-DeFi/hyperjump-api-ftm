@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 export default new ApolloClient({
   link: new HttpLink({
     fetch,
-    uri: 'https://ftmgraph2.hyperswap.fi/subgraphs/name/ftm-subgraph'
+    uri: 'https://ftm-subgraph.hyperjump.app'
   }),
   cache: new InMemoryCache()
 })

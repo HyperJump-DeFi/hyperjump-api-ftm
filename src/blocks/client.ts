@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 export const blockClient = new ApolloClient({
   link: new HttpLink({
     fetch,
-    uri: 'https://ftmgraph2.hyperswap.fi/subgraphs/name/ftm-blocks'
+    uri: 'https://ftm-blocks.hyperjump.app'
   }),
   cache: new InMemoryCache()
 })
