@@ -5,7 +5,7 @@ import { return200, return500 } from './utils/response'
 import { getTopPairs } from './_shared'
 
 interface ReturnShape {
-  [tokenIds: string]: { last_price: string; base_volume: string; quote_volume: string }
+  [tokenIds: string]: { last_price: string; base_volume: string; quote_volume: string; pair_liquidity: string; }
 }
 
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
